@@ -49,7 +49,7 @@
             {//below the get "name" and value "this_critter" are paired for sending 
                 critter:pet
             }, function(data) {    
-                //alert(data);  //here's an alert if you wish to see the data upon return
+                alert(data);  //here's an alert if you wish to see the data upon return
                 //$('#myDiv').html(data); //upon return load data into myDiv
                 output += data;
             }, 'html');

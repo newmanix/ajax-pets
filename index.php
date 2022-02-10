@@ -45,20 +45,19 @@
 
             //alert(pet);
             var output = "";//global var
+            output += `<p>Your pet is a: ${pet}</p>`;
+            output += `<p>Your pet feels: ${feels}</p>`;
+            output += `<p>Your pet likes to be: ${likes}</p>`;
+            output += `<p>Your pet likes to eat: ${eats}</p>`;
             $.get('includes/get_pet.php',
             {//below the get "name" and value "this_critter" are paired for sending 
                 critter:pet
             }, function(data) {    
                 alert(data);  //here's an alert if you wish to see the data upon return
                 //$('#myDiv').html(data); //upon return load data into myDiv
+                $("#output").html(data + output);
                 output += data;
             }, 'html');
-
-            output += `<p>Your pet is a: ${pet}</p>`;
-            output += `<p>Your pet feels: ${feels}</p>`;
-            output += `<p>Your pet likes to be: ${likes}</p>`;
-            output += `<p>Your pet likes to eat: ${eats}</p>`;
-            $("#output").html(output);
         });
 
     });
@@ -89,8 +88,7 @@
    </div>
   
    <input type="submit" value="submit it!" />
-   <div id="pet">Pet pic goes here</div>
-   <div id="output">Output goes here!</div>
+   <div id="output">Pet goes here!</div>
 </form>
 </body>
 </html>

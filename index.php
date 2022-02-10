@@ -65,9 +65,11 @@
    </script>
 </head>
 <body>
-<h2>AJAX Pet Starter</h2>
-<form id="myForm" name="myForm" action="form-handler.php" method="post">
+<h2>AJAX Pet Adoption Agency</h2>
 <p>Below is a starter page for the AJAX Pet Adoption Agency assignment.</p>
+<div id="output">
+<form id="myForm" action="" method="get">
+
    <div id="pet_feels">
        <h3>Feels</h3>
        <p>Please choose how you would like your pet to feel:</p>
@@ -88,7 +90,8 @@
    </div>
   
    <input type="submit" value="submit it!" />
-   <div id="output">Pet goes here!</div>
 </form>
+</div>
+<p><a href="index.php">RESET</a></p>
 </body>
 </html>

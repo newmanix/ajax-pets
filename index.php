@@ -3,66 +3,14 @@
 <head>
  
    <meta name="robots" content="noindex,nofollow">
-   <title>AJAX Pet Starter</title>
-   <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-   <script>
-
-
-
-       
-    $("document").ready(function(){
-        
-        $("#pet_likes").hide();
-        $("#pet_eats").hide();
-        
-
-        $("#pet_feels").click(function(e){
-            //alert("I'm clicked!");
-            $("#pet_likes").slideDown(200);
-
-        });
-
-        $("#pet_likes").click(function(e){
-            //alert("I'm clicked!");
-            $("#pet_eats").slideDown(200);
-
-        });
-        
-        $('#myForm').submit(function(e){
-            e.preventDefault();//no need to submit as you'll be doing AJAX on this page
-            let feels = $("input[name=feels]:checked").val();
-            let likes = $("input[name=likes]:checked").val();
-            let eats = $("input[name=eats]:checked").val();
-            let pet = "";
-
-            if(feels=="fluffy" && likes=="petted" && eats=="carrots" ){
-                pet = "rabbit";
-            }
-
-            if(feels=="scaly" && likes=="ridden" && eats=="pets" ){
-                pet = "velociraptor";
-            }
-
-            //alert(pet);
-            var output = "";//global var
-            output += `<p>Your pet is a: ${pet}</p>`;
-            output += `<p>Your pet feels: ${feels}</p>`;
-            output += `<p>Your pet likes to be: ${likes}</p>`;
-            output += `<p>Your pet likes to eat: ${eats}</p>`;
-            $.get('includes/get_pet.php',
-            {//below the get "name" and value "this_critter" are paired for sending 
-                critter:pet
-            }, function(data) {    
-                alert(data);  //here's an alert if you wish to see the data upon return
-                //$('#myDiv').html(data); //upon return load data into myDiv
-                $("#output").html(data + output);
-                output += data;
-            }, 'html');
-        });
-
-    });
-
-   </script>
+   <title>AJAX Pet Adoption Agency</title>
+   <style>
+       #myForm div{
+        margin-bottom:2%;
+        }
+   </style>
+   <script src="https://code.jquery.com/jquery-latest.js"></script>
+   
 </head>
 <body>
 <h2>AJAX Pet Adoption Agency</h2>
@@ -82,7 +30,7 @@
        <input type="radio" name="likes" value="petted" required="required">to be petted <br />
        <input type="radio" name="likes" value="ridden">to be ridden <br />
    </div>
-       <div id="pet_eats">
+    <div id="pet_eats">
        <h3>Eats</h3>
        <p>Please tell us what your pet likes to eat:</p>
        <input type="radio" name="eats" value="carrots" required="required">carrots <br />
@@ -93,5 +41,23 @@
 </form>
 </div>
 <p><a href="index.php">RESET</a></p>
+<script>
+    $("document").ready(function(){
+        
+        
+        $('#myForm').submit(function(e){
+            e.preventDefault();//no need to submit as you'll be doing AJAX on this page
+            let feels = $("input[name=feels]:checked").val();
+            let likes = $("input[name=likes]:checked").val();
+            let eats = $("input[name=eats]:checked").val();
+            let pet = "";
+            alert(feels);
+
+
+        });
+
+    });
+
+   </script>
 </body>
 </html>

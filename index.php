@@ -89,7 +89,7 @@
        <input type="radio" name="eats" value="pets">other people's pets <br />
    </div>
   
-   <input type="submit" value="submit it!" />
+   <div><input type="submit" value="submit it!" /></div>
 </form>
 </div>
 <p><a href="index.php">RESET</a></p>
